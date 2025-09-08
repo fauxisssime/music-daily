@@ -1,0 +1,56 @@
+app:
+  timezone: "Europe/Paris"
+  delivery_time: "10:00"
+  mode: "equilibre"
+  daily:
+    album_spotlight: 1
+    playlist_size: 15
+    playlist_visibility: "public"
+    create_new_playlist_each_day: true
+
+selection_rules:
+  freshness_window_days: 7
+  per_artist_cap: 2
+  exclude_reissues_deluxe: true
+  bias_france_bonus: 0.10
+  allow_strong_singles: true
+  explicit_allowed: true
+  missing_on_deezer_strategy: "replace_with_other_from_same_artist"
+  fill_strategy_if_under_15: "adventurous_picks"
+
+consensus:
+  editorial_sources_required: 1
+  aggregator_sources_required: 1
+  strong_flag_allows_entry: true
+
+scoring_weights:
+  editorial_presence: 0.35
+  aggregator_presence: 0.25
+  freshness_boost: 0.20
+  strong_flags: 0.15
+  france_bias: 0.05
+
+sources:
+  aoty:
+    enabled: true
+    strategy: "rss"
+  anydecentmusic:
+    enabled: true
+    strategy: "page"
+  bandcamp_daily:
+    enabled: true
+    strategy: "page"
+  pitchfork:
+    enabled: true
+    strategy: "rss"
+  fact_magazine:
+    enabled: true
+    strategy: "rss_or_page"
+  hiphopdx:
+    enabled: true
+    strategy: "page"
+
+enrichment:
+  musicbrainz:
+    enabled: true
+    rate_limit_per_sec: 1
